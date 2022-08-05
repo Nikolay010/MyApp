@@ -1,23 +1,16 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-light
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.sticky-top.navbar-expand-md
   .container-fluid
-    a.navbar-brand href="#"  Navbar
-    button.navbar-toggler aria-controls="navbarNavDropdown" aria-expanded="false" aria-label=("Toggle navigation") data-bs-target="#navbarNavDropdown" data-bs-toggle="collapse" type="button"
+    = link_to "My app", root_path, class: 'navbar-brand'
+    button.navbar-toggler aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button"
       span.navbar-toggler-icon
-    #navbarNavDropdown.collapse.navbar-collapse
-      ul.navbar-nav
-        li.nav-item
-          a.nav-link.active aria-current="page" href="#"  Home
-        li.nav-item
-          a.nav-link href="#"  Features
-        li.nav-item
-          a.nav-link href="#"  Pricing
-        li.nav-item.dropdown
-          a#navbarDropdownMenuLink.nav-link.dropdown-toggle aria-expanded="false" data-bs-toggle="dropdown" href="#" role="button"
-            | Dropdown link
-          ul.dropdown-menu aria-labelledby="navbarDropdownMenuLink"
-            li
-              a.dropdown-item href="#"  Action
-            li
-              a.dropdown-item href="#"  Another action
-            li
-              a.dropdown-item href="#"  Something else here
+    #navbarNav.collapse.navbar-collapse.d-flex.justify-content-end
+      .d-flex.align-items-center.flex-md-row.flex-column
+        .ul.navbar-nav
+          - if current_user
+            .li.nav-item
+              = link_to "Jobs", jobs_path, class: "nav-link fw-bolder"
+            .li.nav-item
+              = button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-primary nav-link"
+          - else
+            = link_to "Sign in", new_user_session_path, class: 'btn btn-primary'
+            = link_to "Sign up", new_user_registration_path, class: 'btn btn-primary ms-2'
