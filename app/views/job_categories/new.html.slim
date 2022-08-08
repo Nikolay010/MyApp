@@ -1,0 +1,6 @@
+= turbo_frame_tag id="second_element"
+  = simple_form_for @job_category do |f|
+    .row
+      .col-md-4
+        = f.input :category, collection: JobCategory.categories.keys
+        = f.button :submit, class: 'btn btn-success mt-2'

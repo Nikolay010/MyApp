@@ -1,0 +1,13 @@
+= simple_form_for job, html: { class: 'job form' }do |f|
+  .row
+    .col-md-4
+      = f.input :title
+      = f.input :description
+    .col-md-4
+      = f.association  :job_category, label_method: :category, value_method: :id, include_blank: false
+    .col-md-4
+      = f.input :date_job, as: :date, html5: true
+    .row.mt-2
+      .col-auto
+        = f.button :submit, class: 'btn btn-success'
+        = link_to 'Cancel', :back, class: 'btn btn-danger ms-2'

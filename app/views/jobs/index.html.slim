@@ -1,0 +1,25 @@
+- content_for(:title) do
+  .h2 = controller_name.humanize
+
+- content_for(:button_link) do
+  = link_to "New job", new_job_path, data: { turbo_frame: "new_element" }, class: "btn btn-success"
+  = link_to "New job categories", new_job_category_path, data: { turbo_frame: "second_element" }, class: "btn btn-success ms-2"
+
+.card
+  .card-body
+    = turbo_frame_tag id="new_element"
+    = turbo_frame_tag id="second_element"
+    table.table.table-bordered.mt-2
+      thead.table-light
+        tr
+          th scope="col"  Title
+          th scope="col"  Description
+          th scope="col"  Category
+          th scope="col"  Date
+      tbody
+        - @jobs.each do |f|
+          tr
+            td = f.title
+            td = f.description
+            td = f.job_category.category
+            td = f.date_job
