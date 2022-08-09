@@ -2,13 +2,14 @@
   .h2 = controller_name.humanize
 
 - content_for(:button_link) do
-  = link_to "New job", new_job_path, data: { turbo_frame: "new_element" }, class: "btn btn-success"
-  = link_to "New job categories", new_job_category_path, data: { turbo_frame: "second_element" }, class: "btn btn-success ms-2"
+  = link_to "New job", new_job_path, data: { turbo_frame: dom_id(Job.new) }, class: "btn btn-success"
+  = link_to "New job categories", new_job_category_path, data: { turbo_frame: dom_id(JobCategory.new) }, class: "btn btn-success ms-2"
 
 .card
+  .card-header
+    = turbo_frame_tag dom_id(Job.new)
+    = turbo_frame_tag dom_id(JobCategory.new)
   .card-body
-    = turbo_frame_tag id="new_element"
-    = turbo_frame_tag id="second_element"
     table.table.table-bordered.mt-2
       thead.table-light
         tr

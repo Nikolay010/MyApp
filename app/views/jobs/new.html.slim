@@ -1,5 +1,5 @@
 - content_for(:title) do
   .h2 = controller_name.humanize
 
-= turbo_frame_tag id="new_element"
+= turbo_frame_tag @job
   = render "jobs/form", job: @job

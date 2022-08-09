@@ -12,10 +12,13 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
 
-    if @job.save!
-      redirect_to jobs_path, notice: "Job was successfully created"
+    if @job.save
+      respond_to do |format|
+        format.html { redirect_to jobs_path, notice: "Job was successfully created" }
+        format.turbo_stream
+      end
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
