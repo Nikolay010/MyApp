@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   root "pages#home"
 
   resources :jobs
-  resources :profile
+  resources :profiles
   resources :job_categories
 end
