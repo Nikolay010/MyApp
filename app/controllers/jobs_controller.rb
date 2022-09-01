@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class JobsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_job, only: [:show, :destroy]
+  before_action :set_job, only: %i[show destroy]
   def index
     @jobs = Job.all
   end
@@ -13,7 +15,7 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
 
     if @job.save
-      respond_to jobs_path, notice: "Job successfully created."
+      respond_to jobs_path, notice: 'Job successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,9 +27,8 @@ class JobsController < ApplicationController
 
   def destroy
     @job.destroy
-    redirect_to jobs_path, notice: "Job was successfully removed"
+    redirect_to jobs_path, notice: 'Job was successfully removed'
   end
-
 
   private
 

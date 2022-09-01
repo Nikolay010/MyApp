@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JobCategoriesController < ApplicationController
   before_action :set_category, only: [:show]
 
@@ -13,7 +15,7 @@ class JobCategoriesController < ApplicationController
     @job_categories = JobCategory.new(job_category_params)
 
     if @job_categories.save
-      redirect_to jobs_path, notice: "Job categories was successfully created"
+      redirect_to jobs_path, notice: 'Job categories was successfully created'
     else
       render :new
     end

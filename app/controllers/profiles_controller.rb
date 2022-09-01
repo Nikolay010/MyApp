@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProfilesController < ApplicationController
   def index
     @profiles = Profile.all
@@ -9,7 +11,17 @@ class ProfilesController < ApplicationController
 
   def destroy
     @profile.destroy
-    redirect_to profiles_path, notice: "Profile was successfully removed."
+    redirect_to profiles_path, notice: 'Profile was successfully removed.'
+  end
+
+  def discard
+    @profile.discard
+    redirect_to profiles_path, notice: 'Profile was successfully deleted.'
+  end
+
+  def restore
+    @profile.undiscard
+    redirect_to profiles_path, 'Profile was restored'
   end
 
   private
