@@ -1,0 +1,8 @@
+.row
+  = simple_form_for @article do |f|
+    .col-md-4
+      = f.input :title
+      = f.input :description
+    .row.mt-2
+      .col-auto
+        = f.button :submit, class: "btn btn-success"

@@ -2,8 +2,8 @@
   .h2 = controller_name.humanize
 
 - content_for(:button_link) do
-  = link_to "New job", new_job_path, class: "btn btn-success"
-  = link_to "New job categories", new_job_category_path, data: { turbo_frame: dom_id(JobCategory.new) }, class: "btn btn-success ms-2"
+  = link_to "New job", new_job_path, class: "btn btn-dark"
+  = link_to "New job categories", new_job_category_path, data: { turbo_frame: dom_id(JobCategory.new) }, class: "btn btn-dark ms-2"
 
 .card
   .card-header

@@ -1,0 +1,12 @@
+- content_for(:title) do
+  .h2 = controller_name.humanize
+
+- content_for(:button_link) do
+  = link_to "New", new_article_path, class: "btn btn-dark text-white"
+
+- @articles.each do |article|
+  .card.mt-4
+    .card-header
+      = link_to article.title, article_path(article), class: "text-dark"
+    .card-body
+      = simple_format(article.description)

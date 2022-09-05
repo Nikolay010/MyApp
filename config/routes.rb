@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :jobs
   resources :profiles
   resources :job_categories
+  resources :articles
 end
