@@ -4,9 +4,15 @@
 - content_for(:button_link) do
   = link_to "New", new_article_path, class: "btn btn-dark text-white"
 
-- @articles.each do |article|
+- @articles.with_discarded.each do |article|
   .card.mt-4
     .card-header
-      = link_to article.title, article_path(article), class: "text-dark"
+      .row
+        .col-md-4
+          = link_to article.title, article_path(article), class: "text-dark"
+        .col.text-end
+          .btn-group-sm
+            = link_to "Remove", discard_article_path(article), class: "btn btn-outline-danger me-1"
+            = link_to "Restore", restore_article_path(article), class: "btn btn-outline-warning"
     .card-body
       = simple_format(article.description)

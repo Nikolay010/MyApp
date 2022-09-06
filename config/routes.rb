@@ -10,5 +10,10 @@ Rails.application.routes.draw do
   resources :jobs
   resources :profiles
   resources :job_categories
-  resources :articles
+  resources :articles do
+    member do
+      get :discard
+      get :restore
+    end
+  end
 end

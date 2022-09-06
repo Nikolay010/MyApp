@@ -1,8 +1,9 @@
 .row
   = simple_form_for @article do |f|
-    .col-md-4
+    .col-md-3
       = f.input :title
       = f.input :description
     .row.mt-2
       .col-auto
-        = f.button :submit, class: "btn btn-success"
+        = f.button :submit, class: "btn btn-success me-1"
+        = link_to "Back", :back, class: "btn btn-dark"

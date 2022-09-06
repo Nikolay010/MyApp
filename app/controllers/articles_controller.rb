@@ -62,6 +62,6 @@ class ArticlesController < ApplicationController
   end
 
   def set_article
-    @article = Article.find(params[:id])
+    @article = Article.with_discarded.find(params[:id])
   end
 end

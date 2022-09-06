@@ -5,7 +5,13 @@
   .card-header
     = @article.title.upcase
   .card-body
-    = @article.description
+    .row
+      .col-md-3
+        = @article.description
+      .col.text-end
+        .btn-group-sm
+          = link_to "Edit", edit_article_path(@article), class: "btn btn-outline-primary text-black me-1"
+          = link_to "Back", :back, class: "btn btn-outline-dark"
   .card-footer
     .badge.bg-secondary.text-wrap style="width: 6rem;"
       = @article.created_at.strftime("%d-%m-%Y")
