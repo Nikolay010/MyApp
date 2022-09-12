@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.visitor = Visitor.first
 
     if @article.save
       redirect_to articles_path, notice: 'Article was created'
@@ -58,7 +59,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :description)
+    params.require(:article).permit(:title, :description, :visitor_id)
   end
 
   def set_article

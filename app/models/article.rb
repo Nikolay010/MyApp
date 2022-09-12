@@ -7,4 +7,7 @@ class Article < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
+  validates :visitor_id, presence: true
+
+  belongs_to :visitor
 end
