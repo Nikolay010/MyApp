@@ -7,7 +7,10 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-
 100.times do
-  Article.create title: Faker::Artist.name , description:  Faker::Restaurant.description
+  psd = SecureRandom.hex(8)
+
+  visitor = Visitor.create email: Faker::Internet.email, password: psd, password_confirmation: psd
+
+  Article.create title: Faker::Artist.name, description: Faker::Restaurant.description, visitor: visitor
 end
