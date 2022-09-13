@@ -16,3 +16,5 @@
             = link_to "Restore", restore_article_path(article), class: "btn btn-outline-warning"
     .card-body
       = simple_format(article.description)
+.d-flex.justify-content-center.mt-2
+  == pagy_bootstrap_nav(@pagy)
